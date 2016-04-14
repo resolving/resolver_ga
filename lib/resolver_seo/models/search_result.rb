@@ -5,6 +5,8 @@ module ResolverSeo
 
     belongs_to :company_scrape, class_name: "ResolverSeo::CompanyScrape"
 
+    store_in database: :resolver_analytics
+    
     field :position, type: Integer
     field :href
     field :title
