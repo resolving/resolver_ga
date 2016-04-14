@@ -58,9 +58,8 @@ module ResolverSeo
       options = LpcOptions.new(args)
 
       skope = ResolverSeo::LandingPageCount.send(options.segment_scope)
-                                          .send(options.page_scope)
-                                          .for_months(options.year, options.month_start, options.months)
-
+                                           .send(options.page_scope)
+                                           .for_months(options.year, options.month_start, options.months)
       company_entrance_counts = []
 
       group_by_company(skope).each do |key, value|

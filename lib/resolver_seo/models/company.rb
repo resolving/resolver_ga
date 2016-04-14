@@ -9,7 +9,7 @@ module ResolverSeo
 
     has_many :landing_page_counts, class_name: "ResolverSeo::LandingPageCount"
     has_many :services, class_name: "ResolverSeo::Service"
-    has_many :company_scrapes
+    has_many :company_scrapes, class_name: 'ResolverSeo::CompanyScrape'
 
     store_in database: :resolver_analytics
 
