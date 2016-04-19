@@ -12,5 +12,6 @@ module ResolverSeo
       (month_start..(month_start + months - 1)).collect do |month|
         month(year,month)
       end
+    end
   end
 end
