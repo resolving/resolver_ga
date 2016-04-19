@@ -20,6 +20,11 @@ module ResolverSeo
     scope :for_company, ->(company) {
       self.in(service_id: company.services.pluck(:_id))
     }
+    
+    scope :for_months, ->(year, month_start, months) {
+      dates = ResolverSeo::Dater.month(year, month_start, months)
+      where(:from.gte => dates.first.first, :to.lte => dates.last.last)
+    }
 
   end
 end

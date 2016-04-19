@@ -28,9 +28,8 @@ module ResolverSeo
     }
 
     scope :for_months, ->(year, month_start, months) {
-       from = ResolverSeo::Dater.month(year, month_start).first
-       to = ResolverSeo::Dater.month(year, month_start + (months - 1)).last
-       where(:from.gte => from, :to.lte => to)
+      dates = ResolverSeo::Dater.months(year, month_start, months) 
+      where(:from.gte => dates.first.first, :to.lte => dates.last.last)
     }
 
     scope :organic, -> { where(segment: 'gaid::-5') }
